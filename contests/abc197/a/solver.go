@@ -13,7 +13,6 @@ func main() {
 
 func solve(s string) string {
 	rs := []rune(s)
-	x, rs := rs[0], rs[1:]
-	rs = append(rs, x)
+	rs = append(rs[1:], rs[0])
 	return string(rs)
 }
