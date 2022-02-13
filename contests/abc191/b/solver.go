@@ -17,19 +17,15 @@ func main() {
 	}
 
 	ans := solve(n, x, aa)
-	ansstr := make([]string, len(ans))
-	for _, v := range ans {
-		ansstr = append(ansstr, strconv.Itoa(v))
-	}
-	fmt.Println(strings.Join(ansstr, " "))
+	fmt.Println(ans)
 }
 
-func solve(n, x int, aa []int) []int {
-	f := []int{}
+func solve(n, x int, aa []int) string {
+	f := []string{}
 	for i := 0; i < n; i++ {
 		if x != aa[i] {
-			f = append(f, aa[i])
+			f = append(f, strconv.Itoa(aa[i]))
 		}
 	}
-	return f
+	return strings.Join(f, " ")
 }
