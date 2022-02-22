@@ -1,13 +1,30 @@
-package util
+package main
 
 import (
-	"math"
+	"fmt"
 	"strconv"
 	"strings"
 )
 
-func powInt(x, y int) int {
-	return int(math.Pow(float64(x), float64(y)))
+func main() {
+	var n int
+	fmt.Scanln(&n)
+
+	ans := solve(n)
+	fmt.Println(ans)
+}
+
+func solve(n int) int {
+	ans := 0
+
+	for i := 1; i <= n; i++ {
+		i8, _ := base(i, 8)
+		if !leftContainsRight(i, 7) && !leftContainsRight(i8, 7) {
+			ans++
+		}
+	}
+
+	return ans
 }
 
 func base(n, b int) (int, error) {
