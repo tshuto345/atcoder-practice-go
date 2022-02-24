@@ -30,3 +30,11 @@ func base(n, b int) (int, error) {
 func leftContainsRight(l, r int) bool {
 	return strings.Contains(strconv.Itoa(l), strconv.Itoa(r))
 }
+
+func gcd(a, b int) int {
+	if b == 0 {
+		return a
+	}
+
+	return gcd(b, a%b)
+}
