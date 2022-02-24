@@ -10,6 +10,10 @@ func powInt(x, y int) int {
 	return int(math.Pow(float64(x), float64(y)))
 }
 
+func absInt(x int) int {
+	return int(math.Abs(float64(x)))
+}
+
 func base(n, b int) (int, error) {
 	if n == 0 {
 		return 0, nil
