@@ -42,3 +42,13 @@ func gcd(a, b int) int {
 
 	return gcd(b, a%b)
 }
+
+func mapSlice(nn []int, fn func(n int) int) []int {
+	_nn := make([]int, len(nn))
+	copy(_nn, nn)
+	for i := 0; i < len(nn); i++ {
+		_nn[i] = fn(_nn[i])
+	}
+
+	return _nn
+}
