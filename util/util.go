@@ -52,3 +52,39 @@ func mapSlice(nn []int, fn func(n int) int) []int {
 
 	return _nn
 }
+
+func remove(ar []int, i int) []int {
+	tmp := make([]int, len(ar))
+	copy(tmp, ar)
+
+	return append(tmp[0:i], tmp[i+1:]...)
+}
+
+func permutation(ar []int) [][]int {
+	var result [][]int
+
+	if len(ar) == 1 {
+		return append(result, ar)
+	}
+
+	for i, a := range ar {
+		for _, b := range permutation(remove(ar, i)) {
+			result = append(result, append([]int{a}, b...))
+		}
+	}
+
+	return result
+}
+
+func intRange(n int) []int {
+	s := make([]int, n)
+	for i := 0; i < n; i++ {
+		s[i] = i
+	}
+
+	return s
+}
+
+func intPerm(n int) [][]int {
+	return permutation(intRange(n))
+}
